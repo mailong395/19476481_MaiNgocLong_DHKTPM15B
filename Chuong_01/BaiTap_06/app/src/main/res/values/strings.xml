@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BaiTap_06</string>
+    <string-array name="listTen">
+        <item>Tèo</item>
+        <item>Tý</item>
+        <item>Bin</item>
+        <item>Bo</item>
+    </string-array>
+</resources>

@@ -41,6 +41,11 @@ public class KhachHang {
         return vip;
     }
 
+    public float getThanhTien() {
+        if (vip) return soLuongSach * 20000 * (float)0.9;
+        else return soLuongSach * 20000;
+    }
+
     @Override
     public String toString() {
         return "KhachHang{" +
