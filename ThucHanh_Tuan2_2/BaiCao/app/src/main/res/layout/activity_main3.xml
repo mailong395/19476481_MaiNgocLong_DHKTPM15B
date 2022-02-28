@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bài cào"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:background="#80ff80"
+            android:textColor="@color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Máy"
+            android:textSize="24dp"
+            android:layout_margin="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/b1fv" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/b1fv" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/b1fv" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/textView_KetQuaMay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Kết quả"
+            android:background="#e6e600"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="VS"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Người chơi"
+            android:textSize="24dp"
+            android:layout_margin="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/b1fv" />
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/b1fv" />
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/b1fv" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/textView_KetQuaNguoi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Kết quả"
+            android:background="#e6e600"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/button_rutlabai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chia bài"
+            android:textAlignment="center"
+            android:backgroundTint="#0059b3"
+            android:layout_marginHorizontal="100dp"/>
+
+        <TextView
+            android:id="@+id/textView_NguoiChienThang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Winer"
+            android:textSize="24dp"
+            android:textAlignment="center"
+            android:background="#80ff80"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+
+</ScrollView>
