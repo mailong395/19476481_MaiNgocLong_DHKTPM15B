@@ -1,5 +1,6 @@
 package com.example.baicao;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -70,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         et_NhapThoiGian = findViewById(R.id.editText_NhapThoiGian);
 
         List<String> listDoiThu = new ArrayList<String>();
-        listDoiThu.add("Chơi với người");
-        listDoiThu.add("Chơi với máy");
+        listDoiThu.add("Người Chơi");
+        listDoiThu.add("Máy Chơi");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listDoiThu);
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         spn_DoiThu.setAdapter(adapter);
@@ -80,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this, spn_DoiThu.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                if (i == 0)
+                    et_NhapThoiGian.setEnabled(false);
+                else
+                    et_NhapThoiGian.setEnabled(true);
             }
 
             @Override
@@ -94,50 +99,50 @@ public class MainActivity extends AppCompatActivity {
                 soLanNhan++;
                 if (soLanNhan % 10 == 0) {
                     ketQuaChungCuoc();
-                    soLanNguoiThua = soLanNguoiThang = soLanNguoiHoa = 0;
                 }
             } else {
-                int thoiGian = 10000;
-                if (Pattern.matches("[0-9]{1,}]", et_NhapThoiGian.getText().toString())) {
+                int thoiGian = 1000;
+                if (!Pattern.matches("[0-9]{0,5}]", et_NhapThoiGian.getText().toString())) {
                     thoiGian = Integer.parseInt(et_NhapThoiGian.getText().toString());
+                    thoiGian *= 1000 + 1;
+                    new CountDownTimer(thoiGian, 1000) {
+                        @Override
+                        public void onTick(long l) {
+                            ChiaBai();
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            ketQuaChungCuoc();
+                        }
+                    }.start();
                 }
                 else {
                     Toast.makeText(MainActivity.this, "Yêu cầu nhập lại", Toast.LENGTH_SHORT).show();
                     et_NhapThoiGian.requestFocus();
                 }
-
-                new CountDownTimer(thoiGian, 2000) {
-                    @Override
-                    public void onTick(long l) {
-                        ChiaBai();
-                    }
-
-                    @Override
-                    public void onFinish() {
-                        ketQuaChungCuoc();
-                    }
-                }.start();
             }
-
-
         });
 
     }
 
     private void ketQuaChungCuoc() {
         String kqcc = "";
-        if (soLanNguoiThang == soLanNguoiThua) {
-            kqcc += "Hòa\nNgười thắng: " + soLanNguoiThang + "\nMáy thắng: " + soLanNguoiThua;
-            Toast.makeText(MainActivity.this, kqcc, Toast.LENGTH_LONG).show();
-        }
-        else if (soLanNguoiThang > soLanNguoiThua) {
-            kqcc += "Người chơi thắng\nNgười thắng: " + soLanNguoiThang + "\nMáy thắng: " + soLanNguoiThua;
-            Toast.makeText(MainActivity.this, kqcc, Toast.LENGTH_LONG).show();
-        }
-        else {
-            kqcc += "Máy thắng\nNgười thắng: " + soLanNguoiThang + "\nMáy thắng: " + soLanNguoiThua;
-            Toast.makeText(MainActivity.this, kqcc, Toast.LENGTH_LONG).show();
-        }
+        if (soLanNguoiThang == soLanNguoiThua)
+            kqcc += "Hòa\nNgười thắng: " + soLanNguoiThang + "\nMáy thắng: " + soLanNguoiThua + "\nHòa: " + soLanNguoiHoa;
+        else if (soLanNguoiThang > soLanNguoiThua)
+            kqcc += "Người chơi thắng\nNgười thắng: " + soLanNguoiThang + "\nMáy thắng: " + soLanNguoiThua + "\nHòa: " + soLanNguoiHoa;
+        else
+            kqcc += "Máy thắng\nNgười thắng: " + soLanNguoiThang + "\nMáy thắng: " + soLanNguoiThua + "\nHòa: " + soLanNguoiHoa;
+        thongBaoKetQua("Kết quả chung cuộc", kqcc);
+        soLanNguoiThua = soLanNguoiThang = soLanNguoiHoa = 0;
+    }
+
+    public void thongBaoKetQua(String title, String content) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle(title).setMessage(content);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     public void ChiaBai() {
