@@ -8,4 +8,12 @@
         <item>Bộ Phận Quản Trị</item>
         <item>Trung Tâm Phần Mềm</item>
     </string-array>
+    <string name="text_select_picture">avatar2</string>
+    <string-array name="text_select_picture">
+        <item>img-avatar</item>
+        <item>img-avatar2</item>
+        <item>avatar2</item>
+        <item>avatar5</item>
+        <item>avatar6</item>
+    </string-array>
 </resources>
