@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btn_ChonMau = findViewById(R.id.button_ChonMau);
-        iv_HinhSanPham = findViewById(R.id.imageView_HinhSanPham);
 
+        iv_HinhSanPham = findViewById(R.id.imageView_HinhSanPham);
         iv_HinhSanPham.setImageResource(R.drawable.vs_blue);
         iv_HinhSanPham.setTag(R.drawable.vs_blue);
 
